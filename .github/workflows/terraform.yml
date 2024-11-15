@@ -19,6 +19,59 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Check if Docker is running
+      run: |
+        if [[ "$RUNNER_OS" == "Linux" ]]; then
+          if ! docker info > /dev/null 2>&1; then
+          echo "Docker is not running. Starting Docker..."
+          sudo systemctl start docker
+          if ! docker info > /dev/null 2>&1; then
+            echo "Failed to start Docker. Please start Docker manually and try again."
+            exit 1
+          fi
+          fi
+        elif [[ "$RUNNER_OS" == "macOS" ]]; then
+          if ! docker info > /dev/null 2>&1; then
+          echo "Docker is not running. Starting Docker..."
+          open --background -a Docker
+          while ! docker info > /dev/null 2>&1; do
+            echo "Waiting for Docker to start..."
+            sleep 5
+          done
+          fi
+        elif [[ "$RUNNER_OS" == "Windows" ]]; then
+          echo "Docker is not running. Starting Docker..."
+          $dockerPaths = @(
+            "C:\Program Files\Docker\Docker\Docker Desktop.exe",
+            "C:\Program Files (x86)\Docker\Docker\Docker Desktop.exe"
+          )
+          $dockerPath = $dockerPaths | Where-Object { Test-Path $_ } | Select-Object -First 1
+          if ($dockerPath) {
+            Start-Process -FilePath $dockerPath -NoNewWindow
+            while (!docker info > $null 2>&1) {
+            echo "Waiting for Docker to start..."
+            Start-Sleep -Seconds 5
+            }
+          } else {
+            echo "Docker is not installed. Please install Docker and try again."
+            exit 1
+          }
+          fi
+          echo "Unsupported OS: $RUNNER_OS"
+          exit 1
+        fi
+
+    - name: Check if Minikube is running
+      run: |
+        if ! minikube status > /dev/null 2>&1; then
+          echo "Minikube is not running. Starting Minikube..."
+          minikube start
+          if ! minikube status > /dev/null 2>&1; then
+          echo "Failed to start Minikube. Please start Minikube manually and try again."
+          exit 1
+          fi
+        fi
+
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v2
       with:
