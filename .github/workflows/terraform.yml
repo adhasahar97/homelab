@@ -39,26 +39,6 @@ jobs:
             sleep 5
           done
           fi
-        elif [[ "$RUNNER_OS" == "Windows" ]]; then
-          echo "Docker is not running. Starting Docker..."
-          $dockerPaths = @(
-            "C:\Program Files\Docker\Docker\Docker Desktop.exe",
-            "C:\Program Files (x86)\Docker\Docker\Docker Desktop.exe"
-          )
-          $dockerPath = $dockerPaths | Where-Object { Test-Path $_ } | Select-Object -First 1
-          if ($dockerPath) {
-            Start-Process -FilePath $dockerPath -NoNewWindow
-            while (!docker info > $null 2>&1) {
-            echo "Waiting for Docker to start..."
-            Start-Sleep -Seconds 5
-            }
-          } else {
-            echo "Docker is not installed. Please install Docker and try again."
-            exit 1
-          }
-          fi
-          echo "Unsupported OS: $RUNNER_OS"
-          exit 1
         fi
 
     - name: Check if Minikube is running
