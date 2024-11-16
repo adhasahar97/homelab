@@ -7,10 +7,6 @@ terraform {
   }
 }
 
-provider "cloudflare" {
-    
-}
-
 data "cloudflare_accounts" "account" {
   name = var.cloudflare_email
 }
