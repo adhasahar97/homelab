@@ -15,7 +15,7 @@ provider "helm" {
 
 resource "helm_release" "cloudflare-tunnel" {
     name       = "cloudflare-tunnel-ingress-controller"
-    repository = "https://kubernetes.github.io/ingress-nginx/"
+    repository = "https://helm.strrl.dev"
     chart      = "cloudflare-tunnel-ingress-controller"
     version    = "0.0.16"
     namespace  = "cloudflare-tunnel"
