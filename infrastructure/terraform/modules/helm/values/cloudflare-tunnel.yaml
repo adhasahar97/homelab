@@ -1,0 +1,3 @@
+cloudflare:
+  apiToken: ${var.cloudflare_tunnel_token}
+  accountId: ${var.cloudflare_account_id}

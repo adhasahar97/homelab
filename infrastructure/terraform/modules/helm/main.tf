@@ -12,12 +12,3 @@ provider "helm" {
 #     namespace  = "ingress"
 #     create_namespace = true
 # }
-
-resource "helm_release" "cloudflare-tunnel" {
-    name       = "cloudflare-tunnel-ingress-controller"
-    repository = "https://helm.strrl.dev"
-    chart      = "cloudflare-tunnel-ingress-controller"
-    version    = "0.0.16"
-    namespace  = "cloudflare-tunnel"
-    create_namespace = true
-}
