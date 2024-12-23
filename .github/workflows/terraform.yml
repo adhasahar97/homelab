@@ -49,7 +49,7 @@ jobs:
       run: |
         if ! minikube status > /dev/null 2>&1; then
           echo "Minikube is not running. Starting Minikube..."
-          minikube start
+          minikube start --profile=minikube-multi
           if ! minikube status > /dev/null 2>&1; then
           echo "Failed to start Minikube. Please start Minikube manually and try again."
           exit 1
