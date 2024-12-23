@@ -8,6 +8,6 @@ resource "helm_release" "cloudflare-tunnel" {
 
     values = [templatefile("${path.module}/values/cloudflare-tunnel.yaml", {
       cloudflare_tunnel_token = var.cloudflare_tunnel_token
-      cloudflare_account_id   = var.cloudflare_tunnel_account_id
+      cloudflare_tunnel_account_id   = var.cloudflare_tunnel_account_id
     })]
 }

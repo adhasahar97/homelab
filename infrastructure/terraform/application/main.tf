@@ -9,7 +9,7 @@ terraform {
 module "helm" {
   source                       = "../modules/helm"
   cloudflare_tunnel_token      = module.cloudflare.cloudflare_tunnel_token
-  cloudflare_tunnel_account_id = module.cloudflare.cloudflare_account_id
+  cloudflare_tunnel_account_id = module.cloudflare.cloudflare_tunnel_account_id
 }
 
 module "cloudflare" {
