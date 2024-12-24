@@ -6,8 +6,17 @@ resource "helm_release" "cloudflare-tunnel" {
     namespace        = "cloudflare-tunnel"
     create_namespace = true
 
-    values = [templatefile("${path.module}/values/cloudflare-tunnel.yaml", {
-      cloudflare_tunnel_token = var.cloudflare_tunnel_token
-      cloudflare_tunnel_account_id   = var.cloudflare_tunnel_account_id
-    })]
+    # values = [ 
+        
+    # ]
+
+    set {
+        name  = "cloudflare.apiToken"
+        value = var.cloudflare_tunnel_token
+    }
+
+    set {
+        name  = "cloudflare.accountId"
+        value = var.cloudflare_tunnel_account_id
+    }
 }
