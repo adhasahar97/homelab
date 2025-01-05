@@ -62,17 +62,16 @@ jobs:
         terraform_version: 1.0.11
 
     - name: Terraform Init
-      run: terraform init
       working-directory: ./infrastructure/terraform/application
+      run: terraform init
 
     - name: Terraform Plan
-      run: terraform plan
       working-directory: ./infrastructure/terraform/application
-
+      run: |
+        terraform plan -var="cloudflare_tunnel_name=${{ vars.CLOUDFLARE_TUNNEL_NAME }}"
+        
     - name: Terraform Apply
-      run: terraform apply -auto-approve
       working-directory: ./infrastructure/terraform/application
-      env:
-        TF_VAR_docker_host: tcp://docker:2375/
-        cloudflare_tunnel_name: ${{ vars.CLOUDFLARE_TUNNEL_NAME }}
+      run: |
+        terraform apply -auto-approve -var="cloudflare_tunnel_name=${{ vars.CLOUDFLARE_TUNNEL_NAME }}"
 
