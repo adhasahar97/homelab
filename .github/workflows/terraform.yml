@@ -47,7 +47,7 @@ jobs:
 
     - name: Check if Minikube is running
       run: |
-        if ! minikube status > /dev/null 2>&1; then
+        if ! minikube status --profile=minikube-multi> /dev/null 2>&1; then
           echo "Minikube is not running. Starting Minikube..."
           minikube start --profile=minikube-multi
           if ! minikube status > /dev/null 2>&1; then
