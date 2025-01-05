@@ -1,4 +1,4 @@
-variable "cloudflare_tunnel_token" {
+variable "cloudflare_api_token" {
   description = "The token used to authenticate with Cloudflare's Zero Trust Tunneling service"
   type        = string
   sensitive = true

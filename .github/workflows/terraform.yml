@@ -67,11 +67,14 @@ jobs:
 
     - name: Terraform Plan
       working-directory: ./infrastructure/terraform/application
-      run: |
-        terraform plan -var="cloudflare_tunnel_name=${{ vars.CLOUDFLARE_TUNNEL_NAME }}"
+      env:
+        TF_VAR_CLOUDFLARE_TUNNEL_NAME: ${{ vars.CLOUDFLARE_TUNNEL_NAME }}
+        TF_VAR_CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      run: terraform plan
         
     - name: Terraform Apply
       working-directory: ./infrastructure/terraform/application
-      run: |
-        terraform apply -auto-approve -var="cloudflare_tunnel_name=${{ vars.CLOUDFLARE_TUNNEL_NAME }}"
-
+      env:
+        TF_VAR_CLOUDFLARE_TUNNEL_NAME: ${{ vars.CLOUDFLARE_TUNNEL_NAME }}
+        TF_VAR_CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      run: terraform apply -auto-approve
