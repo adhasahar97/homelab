@@ -3,3 +3,8 @@ variable "cloudflare_email" {
     type        = string
     default = ""
 }
+
+variable "cloudflare_tunnel_name" {
+    description = "The name of the Cloudflare tunnel"
+    type        = string
+}

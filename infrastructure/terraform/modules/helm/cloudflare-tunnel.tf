@@ -19,4 +19,8 @@ resource "helm_release" "cloudflare-tunnel" {
         name  = "cloudflare.accountId"
         value = var.cloudflare_tunnel_account_id
     }
+    set {
+        name  = "cloudflare.tunnelName"
+        value = var.cloudflare_tunnel_name
+    }
 }
