@@ -74,4 +74,5 @@ jobs:
       working-directory: ./infrastructure/terraform/application
       env:
         TF_VAR_docker_host: tcp://docker:2375/
+        cloudflare_tunnel_name: ${{ vars.CLOUDFLARE_TUNNEL_NAME }}
 
