@@ -18,11 +18,11 @@ locals {
       namespace  = "cloudflare-tunnel"
       version    = "0.0.16"
       values_path = "${path.module}/values/values-cloudflare-tunnel.yaml"
-      yaml_values = [templatefile("${path.module}/values/values-cloudflare-tunnel.yaml", {
+      yaml_values ={
         "cloudflare.apiToken"   = var.cloudflare_api_token
         "cloudflare.accountId"  = "5b2f562a73bc2d4816ec68f4b653e38d"
         "cloudflare.tunnelName" = var.cloudflare_tunnel_name
-      })]
+      }
     }
   }
 }
