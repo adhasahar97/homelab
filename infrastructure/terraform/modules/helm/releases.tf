@@ -6,22 +6,19 @@ locals {
       chart      = "argo-cd"
       namespace  = "argocd"
       version    = "7.7.15"
-      values_path = "${path.module}/values/values-argocd.yaml"
-      yaml_values = {
-        
+      values     = {
+
       }
     },
     "cloudflare-tunnel" = {
-      name       = "cloudflare-tunnel-ingress-controller"
+      name       = "cloudflare-tunnel"
       repository = "https://helm.strrl.dev"
       chart      = "cloudflare-tunnel-ingress-controller"
       namespace  = "cloudflare-tunnel"
       version    = "0.0.16"
-      values_path = "${path.module}/values/values-cloudflare-tunnel.yaml"
-      yaml_values = {
-        "cloudflare.apiToken"   = var.cloudflare_api_token
-        "cloudflare.accountId"  = var.cloudflare_tunnel_account_id
-        "cloudflare.tunnelName" = var.cloudflare_tunnel_name
+      values     = {
+        "cloudflare_tunnel_token"      = var.cloudflare_api_token
+        "cloudflare_tunnel_account_id" = var.cloudflare_tunnel_account_id
       }
     }
   }
@@ -31,11 +28,11 @@ resource "helm_release" "release" {
   for_each = local.list_of_releases
 
   name             = each.value.name
-  repository       = each.value.repository  
+  repository       = each.value.repository
   chart            = each.value.chart
   version          = each.value.version
   namespace        = each.value.namespace
   create_namespace = true
 
-  values = [templatefile(each.value.values_path, each.value.yaml_values)]
+  values = [templatefile("${path.module}/values/values-${each.value.name}.yaml", each.value.values)]
 }
