@@ -7,7 +7,6 @@ terraform {
 }
 
 module "helm" {
-  depends_on = [ module.cloudflare ]
   source                       = "../modules/helm"
   cloudflare_api_token         = var.cloudflare_api_token
   cloudflare_tunnel_account_id = var.cloudflare_account_id
