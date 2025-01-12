@@ -1,0 +1,15 @@
+ingress:
+  enabled: true
+  ingressClassName: "cloudflare-tunnel"
+  hostname: k8s-homelab-argocd.adhshr.xyz
+  path: /
+  extraRules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: argocd-server
+                port:
+                  number: 80
