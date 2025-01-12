@@ -3,3 +3,6 @@ server:
     enabled: true
     ingressClassName: "cloudflare-tunnel"
     hostname: k8s-homelab-argocd.adhshr.xyz
+configs:
+  params:
+    server.insecure: true
