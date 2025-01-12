@@ -6,10 +6,9 @@ locals {
       chart      = "argo-cd"
       namespace  = "argocd"
       version    = "7.7.15"
-      values_path = "${path.module}/values/values-argocd.yaml"
-      values = {
+      yaml_values = [templatefile("${path.module}/values/values-argocd.yaml", {
 
-      }
+      })]
     },
     "cloudflare-tunnel" = {
       name       = "cloudflare-tunnel-ingress-controller"
@@ -17,12 +16,11 @@ locals {
       chart      = "cloudflare-tunnel-ingress-controller"
       namespace  = "cloudflare-tunnel"
       version    = "0.0.16"
-      values_path = "${path.module}/values/values-cloudflare-tunnel.yaml"
-      yaml_values ={
+      yaml_values = [templatefile("${path.module}/values/values-cloudflare-tunnel.yaml", {
         "cloudflare.apiToken"   = var.cloudflare_api_token
-        "cloudflare.accountId"  = "5b2f562a73bc2d4816ec68f4b653e38d"
+        "cloudflare.accountId"  = var.cloudflare_tunnel_account_id
         "cloudflare.tunnelName" = var.cloudflare_tunnel_name
-      }
+      })]
     }
   }
 }
@@ -37,5 +35,5 @@ resource "helm_release" "release" {
   namespace        = each.value.namespace
   create_namespace = true
 
-  values = [templatefile(each.value.values_path, each.value.yaml_values)]
+  values = each.value.yaml_values
 }
