@@ -18,7 +18,7 @@ locals {
       namespace  = "cloudflare-tunnel"
       version    = "0.0.16"
       values_path = "${path.module}/values/values-cloudflare-tunnel.yaml"
-      values = [templatefile("${path.module}/values/values-cloudflare-tunnel.yaml", {
+      yaml_values = [templatefile("${path.module}/values/values-cloudflare-tunnel.yaml", {
         "cloudflare.apiToken"   = var.cloudflare_api_token
         "cloudflare.accountId"  = "5b2f562a73bc2d4816ec68f4b653e38d"
         "cloudflare.tunnelName" = var.cloudflare_tunnel_name
@@ -37,5 +37,5 @@ resource "helm_release" "release" {
   namespace        = each.value.namespace
   create_namespace = true
 
-  values = [templatefile(each.value.values_path, each.value.values)]
+  values = [templatefile(each.value.values_path, each.value.yaml_values)]
 }
