@@ -19,6 +19,7 @@ locals {
       values     = {
         "cloudflare_tunnel_token"      = var.cloudflare_api_token
         "cloudflare_tunnel_account_id" = var.cloudflare_tunnel_account_id
+        "cloudflare_tunnel_name"       = var.cloudflare_tunnel_name
       }
     }
   }
