@@ -6,7 +6,7 @@ resource "helm_release" "argocd" {
     namespace        = "argocd"
     create_namespace = true
 
-    values = [templatefile("${path.module}/values-argocd.yaml", {
+    values = [templatefile("${path.module}/values/values-argocd.yaml", {
       
     })]
 }
