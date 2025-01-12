@@ -12,3 +12,16 @@ locals {
     }
   }
 }
+
+resource "helm_release" "release" {
+  for_each = local.list_of_releases
+
+  name             = each.value.name
+  repository       = each.value.repository
+  chart            = each.value.chart
+  version          = each.value.version
+  namespace        = each.value.namespace
+  create_namespace = true
+
+  values = [each.value.values]
+}
