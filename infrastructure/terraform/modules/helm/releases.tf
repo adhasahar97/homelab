@@ -9,6 +9,18 @@ locals {
       values = templatefile("${path.module}/values/values-argocd.yaml", {
 
       })
+    },
+    "cloudflare-tunnel" = {
+      name       = "cloudflare-tunnel-ingress-controller"
+      repository = "https://helm.strrl.dev"
+      chart      = "cloudflare-tunnel-ingress-controller"
+      namespace  = "cloudflare-tunnel"
+      version    = "0.0.16"
+      values = templatefile("${path.module}/values/values-argocd.yaml", {
+        "cloudflare.apiToken"   = var.cloudflare_api_token
+        "cloudflare.accountId"  = var.cloudflare_tunnel_account_id
+        "cloudflare.tunnelName" = var.cloudflare_tunnel_name
+      })
     }
   }
 }
