@@ -1,4 +1,5 @@
-ingress:
-  enabled: true
-  ingressClassName: "cloudflare-tunnel"
-  hostname: "k8s-homelab-argocd.adhshr.xyz"
+server:
+  ingress:
+    enabled: true
+    ingressClassName: "cloudflare-tunnel"
+    hostname: k8s-homelab-argocd.adhshr.xyz
