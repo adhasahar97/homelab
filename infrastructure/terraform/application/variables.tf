@@ -20,3 +20,14 @@ variable "cloudflare_account_id" {
     type        = string
     default     = "5b2f562a73bc2d4816ec68f4b653e38d"
 }
+
+variable "github_token" {
+  description = "The token used to authenticate with GitHub's API"
+  type        = string
+  sensitive = true
+}
+
+variable "github_username" {
+  description = "The username associated with your GitHub account"
+  type        = string
+}

@@ -11,6 +11,8 @@ module "helm" {
   cloudflare_api_token         = var.cloudflare_api_token
   cloudflare_tunnel_account_id = var.cloudflare_account_id
   cloudflare_tunnel_name       = var.cloudflare_tunnel_name
+  github_token                 = var.github_token
+  github_username              = var.github_username
 }
 
 module "cloudflare" {
