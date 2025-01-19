@@ -36,4 +36,5 @@ variable "github_secret" {
   description = "The secret used to authenticate with GitHub's API"
   type        = string
   sensitive   = true
+  default     = ""
 }

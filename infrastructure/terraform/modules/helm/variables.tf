@@ -1,7 +1,7 @@
 variable "cloudflare_api_token" {
-  description = "The token used to authenticate with Cloudflare's Zero Trust Tunneling service"
-  type        = string
-  # sensitive = true
+    description = "The token used to authenticate with Cloudflare's Zero Trust Tunneling service"
+    type        = string
+  # sensitive   = true
 }
 variable "cloudflare_tunnel_account_id" {
   description = "The account ID associated with the Cloudflare Zero Trust Tunneling service"
@@ -16,7 +16,7 @@ variable "cloudflare_tunnel_name" {
 variable "github_token" {
   description = "The token used to authenticate with GitHub's API"
   type        = string
-  sensitive = true
+  sensitive   = true
 }
 
 variable "github_username" {
@@ -27,5 +27,6 @@ variable "github_username" {
 variable "github_secret" {
   description = "The secret used to authenticate with GitHub's API"
   type        = string
-  sensitive = true
+  sensitive   = true
+  default     = ""
 }
