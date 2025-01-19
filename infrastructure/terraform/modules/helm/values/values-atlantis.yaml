@@ -5,4 +5,4 @@ github:
 ingress:
   enabled: true
   ingressClassName: "cloudflare-tunnel"
-  hostname: k8s-homelab-atlantis-webhook.adhshr.xyz 
+  host: k8s-homelab-atlantis-webhook.adhshr.xyz 
