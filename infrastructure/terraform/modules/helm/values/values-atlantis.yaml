@@ -2,3 +2,7 @@ github:
   user: ${github_username}
   token: ${github_token}
   secret: ${github_secret}
+ingress:
+  enabled: true
+  ingressClassName: "cloudflare-tunnel"
+  hostname: k8s-homelab-atlantis-webhook.adhshr.xyz 
