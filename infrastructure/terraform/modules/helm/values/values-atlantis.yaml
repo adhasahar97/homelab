@@ -2,6 +2,8 @@ github:
   user: ${github_username}
   token: ${github_token}
   secret: ${github_secret}
+ingres:
+  enabled: false
 webhook_ingress:
   enabled: true
   ingressClassName: "cloudflare-tunnel"
