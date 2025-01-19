@@ -12,3 +12,14 @@ variable "cloudflare_tunnel_name" {
   description = "Cloudflare tunnel name"
   type        = string
 }
+
+variable "github_token" {
+  description = "The token used to authenticate with GitHub's API"
+  type        = string
+  sensitive = true
+}
+
+variable "github_username" {
+  description = "The username associated with your GitHub account"
+  type        = string
+}
