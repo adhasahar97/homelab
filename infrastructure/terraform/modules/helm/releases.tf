@@ -48,7 +48,7 @@ locals {
       name       = "k6"
       repository = "https://grafana.github.io/helm-charts"
       chart      = "k6-operator"
-      namespace  = "monitoring"
+      namespace  = "k6"
       version    = "3.10.1"
       values     = {
         
