@@ -23,15 +23,16 @@ locals {
       }
     },
     # "atlantis" = {
-    #   name       = "atlantis"
-    #   repository = "https://runatlantis.github.io/helm-charts"
-    #   chart      = "atlantis"
-    #   namespace  = "atlantis"
-    #   version    = "5.13.0"
-    #   values     = {
-    #     github_username = var.github_username
-    #     github_token    = var.github_token
-    #     github_secret   = var.github_secret
+    # name             = "atlantis"
+    # repository       = "https://runatlantis.github.io/helm-charts"
+    # chart            = "atlantis"
+    # namespace        = "atlantis"
+    # version          = "5.13.0"
+    # create_namespace = true
+    # values           = {
+    # github_username = var.github_username
+    # github_token    = var.github_token
+    # github_secret   = var.github_secret
     #   }
     # },
     "kube-prometheus-stack" = {
@@ -45,12 +46,13 @@ locals {
       }
     },
     "k6" = {
-      name       = "k6"
-      repository = "https://grafana.github.io/helm-charts"
-      chart      = "k6-operator"
-      namespace  = "k6"
-      version    = "3.10.1"
-      values     = {
+      name             = "k6"
+      repository       = "https://grafana.github.io/helm-charts"
+      chart            = "k6-operator"
+      namespace        = "monitoring"
+      version          = "3.10.1"
+      create_namespace = false
+      values           = {
         
       }
     }
@@ -65,7 +67,7 @@ resource "helm_release" "release" {
   chart            = each.value.chart
   version          = each.value.version
   namespace        = each.value.namespace
-  create_namespace = true
+  create_namespace = lookup(each.value, "create_namespace", true)
 
   values = [templatefile("${path.module}/values/values-${each.value.name}.yaml", each.value.values)]
 }
