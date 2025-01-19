@@ -33,7 +33,17 @@ locals {
     #     github_token    = var.github_token
     #     github_secret   = var.github_secret
     #   }
-    # }
+    # },
+    "kube-prometheus-stack" = {
+        name       = "kube-prometheus-stack"
+        repository = "https://prometheus-community.github.io/helm-charts"
+        chart      = "kube-prometheus-stack"
+        namespace  = "monitoring"
+        version    = "68.2.1"
+        values     = {
+          
+        }
+    }
   }
 }
 
