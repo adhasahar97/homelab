@@ -13,6 +13,7 @@ module "helm" {
   cloudflare_tunnel_name       = var.cloudflare_tunnel_name
   github_token                 = var.github_token
   github_username              = var.github_username
+  github_secret                = var.github_secret
 }
 
 module "cloudflare" {

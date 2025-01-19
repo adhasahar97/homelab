@@ -31,6 +31,7 @@ locals {
       values     = {
         github_username = var.github_username
         github_token    = var.github_token
+        github_secret   = var.github_secret
       }
     }
   }

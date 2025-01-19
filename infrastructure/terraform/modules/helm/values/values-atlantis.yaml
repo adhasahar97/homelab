@@ -1,3 +1,4 @@
 github:
   user: ${github_username}
   token: ${github_token}
+  secret: ${github_secret}

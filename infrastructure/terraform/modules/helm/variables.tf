@@ -23,3 +23,9 @@ variable "github_username" {
   description = "The username associated with your GitHub account"
   type        = string
 }
+
+variable "github_secret" {
+  description = "The secret used to authenticate with GitHub's API"
+  type        = string
+  sensitive = true
+}
