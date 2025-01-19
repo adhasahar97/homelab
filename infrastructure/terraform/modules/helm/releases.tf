@@ -35,14 +35,24 @@ locals {
     #   }
     # },
     "kube-prometheus-stack" = {
-        name       = "kube-prometheus-stack"
-        repository = "https://prometheus-community.github.io/helm-charts"
-        chart      = "kube-prometheus-stack"
-        namespace  = "monitoring"
-        version    = "68.2.1"
-        values     = {
-          
-        }
+      name       = "kube-prometheus-stack"
+      repository = "https://prometheus-community.github.io/helm-charts"
+      chart      = "kube-prometheus-stack"
+      namespace  = "monitoring"
+      version    = "68.2.1"
+      values     = {
+        
+      }
+    },
+    "k6" = {
+      name       = "k6"
+      repository = "https://grafana.github.io/helm-charts"
+      chart      = "k6-operator"
+      namespace  = "monitoring"
+      version    = "3.10.1"
+      values     = {
+        
+      }
     }
   }
 }
