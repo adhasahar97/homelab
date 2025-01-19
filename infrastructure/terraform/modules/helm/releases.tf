@@ -29,10 +29,8 @@ locals {
       namespace  = "atlantis"
       version    = "5.13.0"
       values     = {
-        "github" = {
-          "user"  = var.github_username
-          "token" = var.github_token
-        }
+        github_username = var.github_username
+        github_token    = var.github_token
       }
     }
   }
