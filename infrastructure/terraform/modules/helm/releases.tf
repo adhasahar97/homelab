@@ -45,17 +45,17 @@ locals {
         
       }
     },
-    # "k6" = {
-    #   name             = "k6"
-    #   repository       = "https://grafana.github.io/helm-charts"
-    #   chart            = "k6-operator"
-    #   namespace        = "monitoring"
-    #   version          = "3.10.1"
-    #   create_namespace = false
-    #   values           = {
+    "k6" = {
+      name             = "k6"
+      repository       = "https://grafana.github.io/helm-charts"
+      chart            = "k6-operator"
+      namespace        = "monitoring"
+      version          = "3.10.1"
+      create_namespace = false
+      values           = {
         
-    #   }
-    # }
+      }
+    }
   }
 }
 
