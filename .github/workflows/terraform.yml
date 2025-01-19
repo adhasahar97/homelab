@@ -21,9 +21,8 @@ jobs:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       TF_VAR_cloudflare_tunnel_name: ${{ vars.CLOUDFLARE_TUNNEL_NAME }}
       TF_VAR_cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      TF_VAR_github_token: ${{ secrets.GH_TOKEN }}
-      TF_VAR_github_username: ${{ secrets.GH_USERNAME }}
-      TF_VAR_github_secret: ${{ secrets.GH_SECRET }}
+      # TF_VAR_github_token: ${{ secrets.GH_TOKEN }}
+      # TF_VAR_github_username: ${{ secrets.GH_USERNAME }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2

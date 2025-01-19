@@ -22,18 +22,18 @@ locals {
         "cloudflare_tunnel_name"       = var.cloudflare_tunnel_name
       }
     },
-    "atlantis" = {
-      name       = "atlantis"
-      repository = "https://runatlantis.github.io/helm-charts"
-      chart      = "atlantis"
-      namespace  = "atlantis"
-      version    = "5.13.0"
-      values     = {
-        github_username = var.github_username
-        github_token    = var.github_token
-        github_secret   = var.github_secret
-      }
-    }
+    # "atlantis" = {
+    #   name       = "atlantis"
+    #   repository = "https://runatlantis.github.io/helm-charts"
+    #   chart      = "atlantis"
+    #   namespace  = "atlantis"
+    #   version    = "5.13.0"
+    #   values     = {
+    #     github_username = var.github_username
+    #     github_token    = var.github_token
+    #     github_secret   = var.github_secret
+    #   }
+    # }
   }
 }
 
