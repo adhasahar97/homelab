@@ -46,7 +46,7 @@ jobs:
             echo "Waiting for Docker to start..."
             sleep 5
           done
-          fi
+          fi 
         fi
 
     - name: Check if Minikube is running
