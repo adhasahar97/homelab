@@ -14,6 +14,7 @@ module "helm" {
   github_token                 = var.github_token
   github_username              = var.github_username
   github_secret                = var.github_secret
+  cloudflare_domain            = var.cloudflare_domain
 }
 
 module "cloudflare" {
