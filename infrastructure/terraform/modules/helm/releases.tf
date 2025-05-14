@@ -47,16 +47,16 @@ locals {
         
       }
     },
-    "argo-workflow" = {
-      name       = "argo-workflow"
-      repository = "https://argoproj.github.io/argo-helm"
-      chart      = "kube-prometheus-stack"
-      namespace  = "monitoring"
-      version    = "68.2.1"
-      values     = {
+    # "argo-workflow" = {
+    #   name       = "argo-workflow"
+    #   repository = "https://argoproj.github.io/argo-helm"
+    #   chart      = "kube-prometheus-stack"
+    #   namespace  = "monitoring"
+    #   version    = "68.2.1"
+    #   values     = {
         
-      }
-    },
+    #   }
+    # },
     # "k6" = {
     # name             = "k6"
     # repository       = "https://grafana.github.io/helm-charts"
