@@ -13,6 +13,11 @@ variable "cloudflare_tunnel_name" {
   type        = string
 }
 
+variable "cloudflare_domain" {
+  description = "The hostname to be used with the Cloudflare tunnel"
+  type        = string
+}
+
 variable "github_token" {
   description = "The token used to authenticate with GitHub's API"
   type        = string

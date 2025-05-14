@@ -7,7 +7,7 @@ locals {
       namespace  = "argocd"
       version    = "7.7.15"
       values     = {
-
+        "cloudflare_domain" = var.cloudflare_domain
       }
     },
     "cloudflare-tunnel" = {
@@ -20,6 +20,7 @@ locals {
         "cloudflare_tunnel_token"      = var.cloudflare_api_token
         "cloudflare_tunnel_account_id" = var.cloudflare_tunnel_account_id
         "cloudflare_tunnel_name"       = var.cloudflare_tunnel_name
+        "cloudflare_domain"            = var.cloudflare_domain
       }
     },
     # "atlantis" = {
@@ -33,6 +34,7 @@ locals {
     # github_username = var.github_username
     # github_token    = var.github_token
     # github_secret   = var.github_secret
+    # cloudflare_domain" = var.cloudflare_domai
     #   }
     # },
     "kube-prometheus-stack" = {
@@ -45,14 +47,24 @@ locals {
         
       }
     },
+    "argo-workflow" = {
+      name       = "argo-workflow"
+      repository = "https://argoproj.github.io/argo-helm"
+      chart      = "kube-prometheus-stack"
+      namespace  = "monitoring"
+      version    = "68.2.1"
+      values     = {
+        
+      }
+    },
     # "k6" = {
-    #   name             = "k6"
-    #   repository       = "https://grafana.github.io/helm-charts"
-    #   chart            = "k6-operator"
-    #   namespace        = "monitoring"
-    #   version          = "3.10.1"
-    #   create_namespace = false
-    #   values           = {
+    # name             = "k6"
+    # repository       = "https://grafana.github.io/helm-charts"
+    # chart            = "k6-operator"
+    # namespace        = "monitoring"
+    # version          = "3.10.1"
+    # create_namespace = false
+    # values           = {
         
     #   }
     # }

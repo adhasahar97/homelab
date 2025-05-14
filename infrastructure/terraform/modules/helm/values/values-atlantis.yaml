@@ -7,4 +7,4 @@ ingres:
 webhook_ingress:
   enabled: true
   ingressClassName: "cloudflare-tunnel"
-  host: k8s-homelab-atlantis-webhook.adhshr.xyz 
+  host: k8s-homelab-atlantis-webhook.${cloudflare_domain}
