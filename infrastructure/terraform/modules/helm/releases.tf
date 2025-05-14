@@ -44,16 +44,16 @@ locals {
       namespace  = "monitoring"
       version    = "68.2.1"
       values     = {
-        
+        "cloudflare_domain" = var.cloudflare_domain
       }
     },
     # "argo-workflow" = {
-    #   name       = "argo-workflow"
-    #   repository = "https://argoproj.github.io/argo-helm"
-    #   chart      = "kube-prometheus-stack"
-    #   namespace  = "monitoring"
-    #   version    = "68.2.1"
-    #   values     = {
+    # name       = "argo-workflow"
+    # repository = "https://argoproj.github.io/argo-helm"
+    # chart      = "kube-prometheus-stack"
+    # namespace  = "monitoring"
+    # version    = "68.2.1"
+    # values     = {
         
     #   }
     # },

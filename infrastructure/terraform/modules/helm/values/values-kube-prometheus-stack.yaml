@@ -3,4 +3,4 @@ grafana:
     enabled: true
     ingressClassName: "cloudflare-tunnel"
     hosts: 
-      - k8s-homelab-grafana.adhshr.xyz
+      - k8s-homelab-grafana.${cloudflare_domain}
