@@ -31,7 +31,7 @@ spec:
               key: DB_PASSWORD
       containers:
       - name: aniq-runners-list-api
-        image: adhasahar/runners-list-api:f45ee391790e45f7562a346571d1119a01ec409f
+        image: adhasahar/runners-list-api:e832cd2615ac7df623d421293ee68484f7e0b3f3
         env:
         - name: DB_HOST
           value: postgres
