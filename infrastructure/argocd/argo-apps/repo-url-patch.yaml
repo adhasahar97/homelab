@@ -1,0 +1,7 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: not-important # This name is a placeholder and will be ignored by Kustomize for patches.
+spec:
+  source:
+    repoURL: https://github.com/adhasahar97/homelab

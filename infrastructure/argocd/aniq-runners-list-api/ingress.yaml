@@ -8,10 +8,10 @@ metadata:
 spec:
   ingressClassName: cloudflare-tunnel
   rules:
-  - host: aniq-api.adhshr.xyz
+  - host: aniq.adhshr.xyz
     http:
       paths:
-      - path: /
+      - path: /api
         pathType: Prefix
         backend:
           service:

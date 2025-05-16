@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argo-apps
+  name: aniq-api
   namespace: argocd
 spec:
   destination:
-    namespace: default
+    namespace: aniq
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: infrastructure/argocd/argo-apps
+    path: infrastructure/argocd/aniq-runners-list-api
     repoURL: https://github.com/adhasahar97/homelab
     targetRevision: HEAD
   syncPolicy:
@@ -18,3 +18,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - SetDeletionFinalizer=true
