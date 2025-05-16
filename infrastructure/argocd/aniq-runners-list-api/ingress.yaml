@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: aniq-runners-list-api
+  namespace: aniq
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: cloudflare-tunnel
+  rules:
+  - host: aniq-api.adhshr.xyz
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: aniq-runners-list-api
+            port:
+              number: 80

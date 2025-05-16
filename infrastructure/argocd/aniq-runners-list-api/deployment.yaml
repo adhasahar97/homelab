@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aniq-runners-list-api
+  namespace: aniq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aniq-runners-list-api
+  template:
+    metadata:
+      labels:
+        app: aniq-runners-list-api
+    spec:
+      initContainers:
+      - name: wait-for-postgres
+        image: postgres:latest
+        command: ['sh', '-c', 
+          'until pg_isready -h postgres -p 5432 -U $DB_USER; do echo waiting for postgres; sleep 2; done;']
+        env:
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: aniq-runners-list-api-secrets
+              key: DB_USER
+        - name: PGPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: aniq-runners-list-api-secrets
+              key: DB_PASSWORD
+      containers:
+      - name: aniq-runners-list-api
+        image: adhasahar/runners-list-api:f45ee391790e45f7562a346571d1119a01ec409f
+        env:
+        - name: DB_HOST
+          value: postgres
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: aniq-runners-list-api-secrets
+              key: DB_USER
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: aniq-runners-list-api-secrets
+              key: DB_PASSWORD
+        - name: DB_NAME
+          valueFrom:
+            secretKeyRef:
+              name: aniq-runners-list-api-secrets
+              key: DB_NAME

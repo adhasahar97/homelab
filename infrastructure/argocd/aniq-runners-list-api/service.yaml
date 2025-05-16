@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: aniq-runners-list-api
+  namespace: aniq
+spec:
+  selector:
+    app: aniq-runners-list-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: ClusterIP 
