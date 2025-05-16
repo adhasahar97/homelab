@@ -81,5 +81,8 @@ resource "helm_release" "release" {
   namespace        = each.value.namespace
   create_namespace = lookup(each.value, "create_namespace", true)
 
-  values = [templatefile("${path.module}/values/values-${each.value.name}.yaml", each.value.values)]
+  values = try(
+    [templatefile("${path.module}/values/values-${each.value.name}.yaml", each.value.values)],
+    []
+  )
 }
