@@ -7,10 +7,6 @@ terraform {
   }
 }
 
-data "cloudflare_accounts" "account" {
-  name = var.cloudflare_email
-}
-
 resource "random_password" "tunnel_secret" {
   length = 64
 }
