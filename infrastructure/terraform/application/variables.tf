@@ -12,13 +12,13 @@ variable "cloudflare_api_token" {
 variable "cloudflare_account_id" {
     description = "The name of the Cloudflare tunnel"
     type        = string
-    default     = "5b2f562a73bc2d4816ec68f4b653e38d"
+    default     = ""
 }
 
 variable "cloudflare_domain" {
     description = "The hostname to be used with the Cloudflare tunnel"
     type        = string
-    default     = "adhshr.xyz"
+    default     = ""
 }
 
 variable "github_token" {

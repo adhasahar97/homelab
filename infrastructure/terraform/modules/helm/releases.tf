@@ -5,9 +5,19 @@ locals {
       repository = "https://argoproj.github.io/argo-helm"
       chart      = "argo-cd"
       namespace  = "argocd"
-      version    = "8.0.3"
+      version    = "8.0.12"
       values     = {
-        "cloudflare_domain" = var.cloudflare_domain
+        "hostname" = var.cloudflare_domain
+      }
+    },
+    "argo-workflows" = {
+      name       = "argo-workflows"
+      repository = "https://argoproj.github.io/argo-helm"
+      chart      = "argo-workflows"
+      namespace  = "argocd"
+      version    = "0.45.15"
+      values     = {
+        "hostname" = var.cloudflare_domain
       }
     },
     "cloudflare-tunnel" = {

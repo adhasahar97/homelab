@@ -2,7 +2,7 @@ server:
   ingress:
     enabled: true
     ingressClassName: "cloudflare-tunnel"
-    hostname: k8s-homelab-argocd.${cloudflare_domain}
+    hostname: k8s-homelab-argocd.${hostname}
 configs:
   params:
     server.insecure: true
