@@ -1,0 +1,3 @@
+cloudflare_account_id = "123"
+cloudflare_domain = "adhshr.xyz"
+cloudflare_tunnel_name = "k8s-homelab"

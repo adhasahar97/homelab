@@ -21,20 +21,20 @@ variable "cloudflare_domain" {
     default     = ""
 }
 
-variable "github_token" {
-  description = "The token used to authenticate with GitHub's API"
-  type        = string
-  sensitive   = true
-}
+# variable "github_token" {
+#   description = "The token used to authenticate with GitHub's API"
+#   type        = string
+#   sensitive   = true
+# }
 
-variable "github_username" {
-  description = "The username associated with your GitHub account"
-  type        = string
-}
+# variable "github_username" {
+#   description = "The username associated with your GitHub account"
+#   type        = string
+# }
 
-variable "github_secret" {
-  description = "The secret used to authenticate with GitHub's API"
-  type        = string
-  sensitive   = true
-  default     = ""
-}
+# variable "github_secret" {
+#   description = "The secret used to authenticate with GitHub's API"
+#   type        = string
+#   sensitive   = true
+#   default     = ""
+# }
