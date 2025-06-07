@@ -10,22 +10,22 @@ locals {
         "hostname" = var.cloudflare_domain
       }
     },
-    "argo-workflows" = {
-      name       = "argo-workflows"
-      repository = "https://argoproj.github.io/argo-helm"
-      chart      = "argo-workflows"
-      namespace  = "argo-workflows"
-      version    = "0.45.15"
-      values     = {
-        "hostname" = var.cloudflare_domain
-      }
-    },
+    # "argo-workflows" = {
+    #   name       = "argo-workflows"
+    #   repository = "https://argoproj.github.io/argo-helm"
+    #   chart      = "argo-workflows"
+    #   namespace  = "argo-workflows"
+    #   version    = "0.45.15"
+    #   values     = {
+    #     "hostname" = var.cloudflare_domain
+    #   }
+    # },
     # "cloudflare-tunnel" = {
     #   name       = "cloudflare-tunnel"
     #   repository = "https://helm.strrl.dev"
     #   chart      = "cloudflare-tunnel-ingress-controller"
     #   namespace  = "cloudflare-tunnel"
-    #   version    = "0.0.16"
+    #   version    = "0.0.18"
     #   values     = {
     #     "cloudflare_tunnel_token"      = var.cloudflare_api_token
     #     "cloudflare_tunnel_account_id" = var.cloudflare_tunnel_account_id
