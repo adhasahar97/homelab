@@ -17,14 +17,14 @@ jobs:
 
     runs-on: self-hosted
     env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_DEFAULT_REGION: ap-southeast-1
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      TF_VAR_cloudflare_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-      TF_VAR_cloudflare_tunnel_name: ${{ vars.CLOUDFLARE_TUNNEL_NAME }}
-      TF_VAR_cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      TF_VAR_cloudflare_domain: ${{ vars.CLOUDFLARE_DOMAIN }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }} # For Terraform AWS provider
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }} # For Terraform AWS provider
+      AWS_DEFAULT_REGION: ap-southeast-1 # For Terraform AWS provider
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }} # For Terraform Cloudflare provider
+      TF_VAR_cloudflare_account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }} # For Cloudflare Ingress Controller helm release
+      TF_VAR_cloudflare_tunnel_name: ${{ vars.CLOUDFLARE_TUNNEL_NAME }} # For Cloudflare Ingress Controller helm release
+      TF_VAR_cloudflare_api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }} # For Cloudflare Ingress Controller helm release
+      TF_VAR_cloudflare_domain: ${{ vars.CLOUDFLARE_DOMAIN }} # For Cloudflare Ingress Controller helm release
       # TF_VAR_github_token: ${{ secrets.GH_TOKEN }}
       # TF_VAR_github_username: ${{ secrets.GH_USERNAME }}
     steps:

@@ -14,7 +14,7 @@ locals {
       name       = "argo-workflows"
       repository = "https://argoproj.github.io/argo-helm"
       chart      = "argo-workflows"
-      namespace  = "argocd"
+      namespace  = "argo-workflows"
       version    = "0.45.15"
       values     = {
         "hostname" = var.cloudflare_domain
@@ -54,7 +54,7 @@ locals {
       namespace  = "monitoring"
       version    = "68.2.1"
       values     = {
-        "cloudflare_domain" = var.cloudflare_domain
+        "hostname" = var.cloudflare_domain
       }
     },
     # "argo-workflow" = {

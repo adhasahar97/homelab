@@ -3,4 +3,4 @@ server:
     enabled: true
     ingressClassName: "cloudflare-tunnel"
     hosts:
-      - k8s-homelab-argo-workflows.${hostname}
+      - argo-workflows.${hostname}
